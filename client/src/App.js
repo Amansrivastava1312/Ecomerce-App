@@ -13,6 +13,8 @@ import Login from "./pages/auth/Login";
 import Dashboard from "./pages/user/Dashboard";
 import PrivateRoute from "./component/routes/Private";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import AdminRoute from "./component/routes/AdminRoute";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 function App() {
   return (
     <>
@@ -26,8 +28,11 @@ function App() {
         <Route path="/policy" element={<Policy />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
+        </Route>
         <Route path="/dashboard" element={<PrivateRoute />}>
-          <Route path="" element={<Dashboard />} />
+          <Route path="user" element={<Dashboard />} />
         </Route>
 
         <Route path="/*" element={<Pagenotfound />} />
